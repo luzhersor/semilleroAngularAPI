@@ -1,0 +1,27 @@
+<div class="col-12 container-fluid p-3 justify-content-center">
+
+  <div class="">
+    <!-- Busqueda
+     (keyup.enter)="searchTag()"-->
+    <!--     <gifs-search-box></gifs-search-box> -->
+
+    <h5 id="bar" class="text-center">Buscar:</h5>
+
+
+    <div class="text-center d-flex justify-content-center align-items-center">
+    <input style="width:500px;" step="search" class="form-control"
+    placeholder="Buscar stickers..." (keyup.enter)="searchTag()" #txtTagInput>
+    </div>
+
+  </div>
+
+  <div class="col-12">
+    <app-side-bar></app-side-bar>
+  </div>
+
+  <div class="col-12 pt-2">
+    <app-card-list [stickers]="stickers"></app-card-list>
+
+  </div>
+
+</div>
