@@ -38,7 +38,7 @@ export class StickersService{
     this.http.get<SearchResponse>(`${this.serviceUrl}`,{params})
     .subscribe(resp=> {
       this.stickersList = resp.data;
-      console.log(resp.data);
+      console.log(resp.data, "Estamos aqui");
     })
 
 

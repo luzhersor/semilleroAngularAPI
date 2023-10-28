@@ -20,6 +20,7 @@ export class HomePageComponent {
      this.stickersService.searchTag(newTag);
      this.tagInput.nativeElement.value = '';
 
+
      //console.log({newTag})
      //Se incluye esta función porque estamos
      //incluyendo el searchbox

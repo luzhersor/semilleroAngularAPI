@@ -15,4 +15,7 @@ export class FiltroPipe implements PipeTransform {
     return [];
   }
 
+
+
+
 }

@@ -4,6 +4,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { CardListComponent } from './components/card-list/card-list.component';
 import { FiltroPipe } from './pipes/filtro.pipe';
+import { PipeKPipe } from './pipes/pipe-k.pipe';
 
 
 
@@ -12,7 +13,8 @@ import { FiltroPipe } from './pipes/filtro.pipe';
     SideBarComponent,
     HomePageComponent,
     CardListComponent,
-    FiltroPipe
+    FiltroPipe,
+    PipeKPipe
   ],
   imports: [
     CommonModule

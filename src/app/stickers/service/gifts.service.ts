@@ -14,7 +14,10 @@ export class StickersService{
   private apiKey: string = 'iayNqqLALUr9vorjS6w7cKiYFqEVmlON';
   private serviceUrl: string = 'https://api.giphy.com/v1/stickers';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.loadLocalStorage();
+    console.log("aqui");
+  }
 
   get stickersHistory(){
     return [...this._stickersHistory]
@@ -39,6 +42,7 @@ export class StickersService{
     .subscribe(resp=> {
       this.stickersList = resp.data;
       console.log(resp.data);
+
     })
 
 
@@ -52,7 +56,7 @@ export class StickersService{
   //Par que es el filter(), me regresa los elementos que cumplan
   //la condicion, si estoy buscando tag me regresaria tag
   //pero borramos del arreglo, en el anterior proyecto usabamos
-  //filter para borrar con el tachecito
+  //filter parqa borrar con el tachecito
 
 
     if(this._stickersHistory.includes(sticker)){
@@ -61,10 +65,26 @@ export class StickersService{
       oldSticker !== sticker)
     }
 
+
+    //Persistencia
     this._stickersHistory.unshift(sticker);
     this._stickersHistory = this.stickersHistory.splice(0,10)
+    this.saveLocalStorage();
+  }
 
 
+  private saveLocalStorage(): void{
+    localStorage.setItem('history', JSON.stringify(this._stickersHistory));
+  }
+
+  private loadLocalStorage(): void{
+    if(!localStorage.getItem('history')) return;
+    this._stickersHistory = JSON.parse(localStorage.getItem('history')!);
+
+    //Local Storage
+    if(this._stickersHistory.length > 0){
+      this.searchTag(this._stickersHistory[0]);
+    }
   }
 
 }

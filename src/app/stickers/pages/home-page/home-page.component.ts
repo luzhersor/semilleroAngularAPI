@@ -9,6 +9,9 @@ import { Sticker } from '../../interfaces/stickersInterface';
 })
 export class HomePageComponent {
 
+  @Input()
+  public stickers2: Sticker[] = [];
+
   constructor(private stickersService: StickersService){}
 
   @ViewChild('txtTagInput')
